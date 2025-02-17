@@ -7,6 +7,7 @@ import {
   faYoutube,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+// import SignUpForm from "./backend/server" ;
 
 class HorizontalLine extends React.Component {
   render() {
@@ -22,6 +23,41 @@ class HorizontalLine extends React.Component {
 }
 
 class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "", // Initialize the email state
+    };
+  }
+
+  handleInputChange = (event) => {
+    this.setState({
+      email: event.target.value,
+    });
+  };
+
+  handleSignUp = () => {
+    const { email } = this.state;
+
+    // Send a POST request to your server
+    fetch("http://localhost:5000/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        // Handle success, e.g., show a success message to the user
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Handle errors, e.g., show an error message to the user
+      });
+  };
+
   render() {
     const textStyle = {
       color: "#333333",
@@ -29,16 +65,6 @@ class Footer extends React.Component {
       fontSize: "13px",
       fontWeight: "600",
     };
-
-    // const blueBackgroundStyle = {
-    //   background: "#F9F5F2",
-    //   width: "100%",
-    //   height: "350px",
-    //   position: "relative",
-    //   top: "0",
-    //   left: "0",
-    //   zIndex:-1,
-    // };
 
     const contentStyle = {
       position: "relative", // Add position relative to allow content to sit on top of the background
@@ -81,7 +107,7 @@ class Footer extends React.Component {
                   fontWeight: "300",
                 }}
               />
-              <button className="sign-up-button" style={{color:"#333", padding:"10px"}}>SIGN UP</button>
+              <button className="sign-up-button" style={{color:"#333", padding:"10px"}} onClick={this.handleSignUp}>SIGN UP</button>
             </div>
             <div className="social-icons-container" style={{ marginTop: "20px" }}>
               <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
@@ -279,9 +305,32 @@ class Footer extends React.Component {
         </div>
         {/* Render the blue background behind the content */}
         {/* <div style={blueBackgroundStyle}></div> */}
+        {/* <SignUpForm /> */}
       </div>
     );
   }
+  handleSignUp = () => {
+    const { email } = this.state;
+
+    // Send a POST request to your server
+    fetch("http://localhost:5000/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        // Handle success, e.g., show a success message to the user
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Handle errors, e.g., show an error message to the user
+      });
+  };
 }
+
 
 export default Footer;

@@ -1,0 +1,65 @@
+/* RecipeDisplay.css */
+#recipe {
+    padding: 0px; /* Add padding to the main container */
+    border-radius: 10px; /* Rounded corners for a classy look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.recipe-display-container {
+    font-family: 'Abril Fatface'; /* Use Google Fonts format */
+    padding: 10%;
+    color: #333; /* Darker text color for readability */
+    margin: 0px auto ; /* Center the container and reduce top margin */
+    max-width: 800px; /* Limit width for readability */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    line-height: 1.6;
+}
+
+.recipe-header {
+    display: flex;
+    align-items: flex-start;
+}
+
+.recipe-header-text {
+    flex: 1;
+    margin:0; /* Space between image and text */
+}
+
+.recipe-header-image {
+    width: 30%;
+    height: auto; /* Adjusted width for better balance */
+    margin-right: 20px;
+}
+
+.recipe-header-image img {
+    width: 100%; /* Ensure image fills its container */
+    height: auto;
+    margin-left: 15%;
+    border-radius: 5px; /* Rounded corners for the image */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for image */
+}
+.recipe-header h2 {
+    margin-right: 10px; /* Remove default margin */
+}
+
+.recipe-ingredients, .recipe-directions {
+    padding: 20px;
+    background-color: #F9F5F2;
+    border-radius: 5px; /* Rounded corners for sections */
+}
+
+.recipe-ingredients ul, .recipe-directions div {
+    padding-left: 20px; /* Indent text content */
+}
+
+.recipe-directions h3 {
+    margin-top: 15px; /* Slightly reduced margin */
+    font-size: 1.2em; /* Adjusted font size for hierarchy */
+}
+
+.notes {
+    margin-top: 15px; /* Reduced margin */
+    font-style: italic; /* Italicize notes for distinction */
+}

@@ -32,8 +32,8 @@ function App() {
           <Route path="/other" element={<Rectangle_1 />} />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/faqs" element={<Header />} />
-          <Route path="/add-recipe" element={<RecipeForm />} />
-          <Route path="/recipe/:id" element={<RecipeDisplay />} />
+          <Route path="/recipe" element={<RecipeForm />} />
+          <Route path="/recipe" element={<RecipeDisplay />} />
           <Route path="/About-us" element={<About />} />
         </Routes>
         <Footer />
@@ -42,4 +42,3 @@ function App() {
   );
 }
 
-export default App;

@@ -41,37 +41,7 @@ export const NavBar = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link
-                href="/mealPlans"
-                className={
-                  activeLink === "mealPlans"
-                    ? "active navbar-link"
-                    : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("mealPlans")}
-              >
-                Meal Plans
-              </Nav.Link>
-              <Nav.Link
-                href="/news"
-                className={
-                  activeLink === "news" ? "active navbar-link" : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("news")}
-              >
-                News
-              </Nav.Link>
-              <Nav.Link
-                href="/featured"
-                className={
-                  activeLink === "featured"
-                    ? "active navbar-link"
-                    : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("featured")}
-              >
-                Featured
-              </Nav.Link>
+
               <Nav.Link
                 href="/recipes"
                 className={

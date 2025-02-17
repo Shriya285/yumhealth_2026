@@ -2,6 +2,7 @@ import React from 'react';
 import choclate from '../assets/img/chocolate.jpg'; // Example image import
 import brownie from '../assets/img/brownie1.jpg'; // Example image import
 import { useParams } from 'react-router-dom';
+import './RecipeDisplay.css'; // Import CSS file for styling
 
 const RecipeDisplay = () => {
   const { id } = useParams(); // Get the ID from URL params
@@ -11,7 +12,8 @@ const RecipeDisplay = () => {
     {
       id: '1',
       title: 'Chocolate Cake',
-      description: 'This is a rich and moist chocolate cake. It only takes a few minutes to prepare the batter. Frost with your favorite chocolate frosting.',
+      description:
+        'This is a rich and moist chocolate cake. It only takes a few minutes to prepare the batter. Frost with your favorite chocolate frosting.',
       prepTime: '20 mins',
       cookTime: '30 mins',
       additionalTime: '30 mins',
@@ -47,7 +49,8 @@ const RecipeDisplay = () => {
     {
       id: '2',
       title: 'Brownie',
-      description: 'For years I experimented with various brownie recipes found on the internet, but none seemed to satisfy me until I finally cultivated the perfect brownie recipe. This recipe produces rich, fudgy brownies with a crackly exterior that consistently turns out well. They arre adorned with nuts, providing the brownies with an extra layer of texture.',
+      description:
+        'For years I experimented with various brownie recipes found on the internet, but none seemed to satisfy me until I finally cultivated the perfect brownie recipe. This recipe produces rich, fudgy brownies with a crackly exterior that consistently turns out well. They arre adorned with nuts, providing the brownies with an extra layer of texture.',
       prepTime: '30 mins',
       cookTime: '30 mins',
       additionalTime: '10 mins',
@@ -90,30 +93,27 @@ const RecipeDisplay = () => {
   if (!recipe) return <p>Recipe not found</p>;
 
   return (
-    <div style={{ color: 'black', padding: '20px', margin: '110px 100px', display: 'flex', flexDirection: 'column', gap: '20px', lineHeight: '1.6' }}>
-      <div>Recipe &gt; Desserts &gt; Cakes &amp; {recipe.title} Recipe</div>
-      <div style={{ display: 'flex' }}>
-        <div>
+    <div className='recipe-display-container'>
+      <div className='recipe-header'>
+        <div className='recipe-header-text'>
           <h2>{recipe.title}</h2>
           <p>{recipe.description}</p>
-          <ul style={{ paddingLeft: '20px' }}>
-            <li style={{ padding: '5px 0' }}>Prep time: {recipe.prepTime}</li>
-            <li style={{ padding: '5px 0' }}>Cook time: {recipe.cookTime}</li>
-            <li style={{ padding: '5px 0' }}>Additional time: {recipe.additionalTime}</li>
-            <li style={{ padding: '5px 0' }}>Total time: {recipe.totalTime}</li>
+          <ul className='recipe-times'>
+            <li>Prep time: {recipe.prepTime}</li>
+            <li>Cook time: {recipe.cookTime}</li>
+            <li>Additional time: {recipe.additionalTime}</li>
+            <li>Total time: {recipe.totalTime}</li>
           </ul>
         </div>
-        <div>
-          <img src={recipe.image} alt="recipe" style={{ width: '400px', height: 'auto' }} />
+        <div className='recipe-header-image'>
+          <img src={recipe.image} alt='recipe' />
         </div>
       </div>
       <div>
         <h2>Ingredients</h2>
-        <ul style={{ paddingLeft: '20px' }}>
+        <ul className='recipe-ingredients'>
           {recipe.ingredients.map((ingredient, index) => (
-            <li key={index} style={{ padding: '5px 0' }}>
-              {ingredient}
-            </li>
+            <li key={index}>{ingredient}</li>
           ))}
         </ul>
       </div>
@@ -127,11 +127,8 @@ const RecipeDisplay = () => {
         ))}
       </div>
       <div>
-        <h3>Nutrition Facts</h3>
-        <p>Calories - {recipe.nutritionFacts.calories}</p>
-        <p>Fat - {recipe.nutritionFacts.fat}</p>
-        <p>Carbs - {recipe.nutritionFacts.carbs}</p>
-        <p>Protein - {recipe.nutritionFacts.protein}</p>
+        <h3>Notes</h3>
+        <p>{recipe.notes.note}</p>
       </div>
     </div>
   );
